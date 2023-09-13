@@ -1,0 +1,49 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.foot{
+  height: 10rem;
+  background: #b8c4d6;
+}
+html{
+  font-size: 16px;
+}
+.navl:hover{
+  background: white;
+  color: #50b0ec;
+  border-radius: 16px;
+}
+.navl ,.navu{
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.texth{
+  font-size: 4rem;
+}
+.navll{
+  color: blue;
+}
+.navL{
+  font-size: 4rem;
+}
+.pfs{
+  font-size: 2rem;
+}
+.nav{
+  height:10rem;
+}
+.listcontact{
+  text-align: center;
+  font-size: 3rem;
+  padding: 1rem;
+}
+.lif{
+  color: #23262b;
+}
+.lifl{
+  color: #2975f0;
+}
