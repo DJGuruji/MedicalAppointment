@@ -1,15 +1,20 @@
 #create virtual environment
 
-python -m venv
+python -m venv <venv name>
 
-#Activate venv source /bin/activate
+#Activate venv
+source <your venv name>/bin/activate
 
 #Clone the repo👾 https://github.com/DJGuruji/MedicalAppointment 
 
 #Open The Folder📂 cd Hbooking
 
-#Install requirements🎯 pip install -r requirements.txt
+#Install requirements🎯
+pip install -r requirements.txt
 
-#migrate python manage.py makemigrations python manage.py migrate
+#migrate 
+python manage.py makemigrations python manage.py migrate
 
-#Finally Run The project python manage.py runserver
+#Finally Run The project by
+
+python manage.py runserver

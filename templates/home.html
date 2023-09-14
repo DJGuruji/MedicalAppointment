@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}
-  {% endblock %}
+home
+{% endblock %}
 {% block content %}
-<h1>home</h1>
-  {% endblock %}
+<h1 class="text-center text-primary p-2 mt-5  ">MEDICAL APPOINTMENT </h1>
+
+<h1 class="text-center p-1 text-success ">Our Departments</h1>
+{% for d in dept %}
+<div class="card w-100 p-5 ">
+  <div class="card-body">
+    <h2 class="card-title text-center">{{d.dep_name}} </h2>
+    <h3 class="card-subtitle mb-2 text-body-secondary"></h3>
+    <p class="card-text fs-3">
+      {{ d.dep_desc }}
+    </p>
+
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

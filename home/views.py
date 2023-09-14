@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .forms import CreateUserForm
+from .models import *
+
 
 
 def register(request):
@@ -55,7 +57,10 @@ def logout_user(request):
  
 @login_required(login_url ='login') 
 def index(request):
-  return render(request, 'home.html')
+  dict_dept = {
+    'dept' : Departments.objects.all()
+  }
+  return render(request, 'home.html',dict_dept)
   
 @login_required(login_url ='login')   
 def about(request):
