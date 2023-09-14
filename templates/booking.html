@@ -1,8 +1,19 @@
+
 {% extends 'base.html' %}
+
 {% block title %}
-  {% endblock %}
-
-
+booking
+{% endblock %}
 
 {% block content %}
-  {% endblock %}
+<h1 class="text-center fs-1 ">
+  Make An Appointment
+</h1>
+<div class="container ">
+<form action="" class="uniForm" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  
+</form>
+</div>
+{% endblock %}

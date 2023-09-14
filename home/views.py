@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .forms import CreateUserForm
+from .forms import CreateUserForm, Bookingform
 from .models import *
 
 
@@ -68,7 +68,11 @@ def about(request):
 
 @login_required(login_url ='login') 
 def booking(request):
-  return render(request, 'booking.html')
+  form = Bookingform()
+  dict_form = {
+    'form' : form
+  }
+  return render(request, 'booking.html',dict_form)
 
 @login_required(login_url ='login') 
 def contact(request):

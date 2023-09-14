@@ -15,3 +15,15 @@ class Doctor(models.Model):
   
   def __str__(self):
     return 'Dr.'+self.doc_name+'-('+self.doc_spec+')'
+
+
+class Booking(models.Model):
+  p_name = models.CharField(max_length=100)
+  p_phone = models.CharField(max_length=10)
+  p_email = models.EmailField()
+  doc_name = models.ForeignKey(Doctor, on_delete = models.CASCADE)
+  booking_date = models.DateField()
+  booked_on = models.DateField(auto_now = True)
+  
+  def __str__(self):
+    return self.p_name

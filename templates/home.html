@@ -3,16 +3,16 @@
 home
 {% endblock %}
 {% block content %}
-<h1 class="text-center text-primary p-2 mt-5  ">WELCOME TO MEDICAL APPOINTMENT </h1>
-<p class="ph text-center p-2 fs-3 text-primary">We are Here To Assist You</p>
+<h1 class="text-center text-primary p-2 mt-5 fw-bold listcontact">WELCOME TO MEDICAL APPOINTMENT </h1>
+<p class="ph text-center p-2 text-primary fw-bolder listcontact">We are Here To Assist You</p>
 
-<h1 class="text-center p-1 text-success ">Our Department</h1>
+<h1 class="text-center p-1 fw-bold text-success listcontact ">Our Department</h1>
 {% for d in dept %}
-<div class="card w-100 p-5 ">
-  <div class="card-body shadow-lg p-4 ">
-    <h2 class="card-title text-center">{{d.dep_name}} </h2>
-    <h3 class="card-subtitle mb-2 text-body-secondary"></h3>
-    <p class="card-text fs-3">
+<div class="card w-100 p-5 shadow-lg ">
+    <h2 class="listcontact fw-bold card-title text-center">{{d.dep_name}} </h2>
+  <div class="card-body  p-4 ">
+    
+    <p class="card-text fonts listcontact  pd">
       {{ d.dep_desc }}
     </p>
 
