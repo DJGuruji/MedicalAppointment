@@ -58,7 +58,7 @@ def logout_user(request):
 @login_required(login_url ='login') 
 def index(request):
   dict_dept = {
-    'dept' : Departments.objects.all()
+    'dept' : Department.objects.all()
   }
   return render(request, 'home.html',dict_dept)
   
@@ -76,4 +76,7 @@ def contact(request):
   
 @login_required(login_url ='login') 
 def doctors(request):
-  return render(request, 'doctors.html')
+  dict_dept = {
+    'dept' : Doctor.objects.all()
+  }
+  return render(request, 'doctors.html',dict_dept)
