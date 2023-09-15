@@ -28,6 +28,11 @@
       <li class=" fw-bold p-3 my-auto "><a class="navl  text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
 
       <li class="fw-bold p-3 my-auto "><a class="navl   text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
+      {% if user.is_authenticated and user.is_superuser or user.is_staff %}
+      <li class="fw-bold p-3 my-auto">
+        <a class="navl text-decoration-none" href="/admin/">Admin </a>
+      </li>
+      {% endif %}
     </ul>
     <ul class="list-unstyled ">
       <li class=" p-3 t my-auto "><a class="navl mb-3 fw-bold text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
