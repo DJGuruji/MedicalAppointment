@@ -11,14 +11,16 @@
 html{
   font-size: 16px;
 }
-.navl:hover{
-  background: white;
-  color: #50b0ec;
-  border-radius: 16px;
-}
+
 .navl ,.navu{
   font-size: 2.5rem;
+  color: #1648c7;
+
+}
+.navl:hover{
   color: #fff;
+  background: #c9cfde;
+  border-radius: 2px;
 }
 
 .texth{
@@ -51,4 +53,22 @@ html{
   .submit_btn:focus {
     box-shadow: none !important;
     outline: 0px !important;
+  }
+  .headertext{
+    font-size: 4.5rem;
+  }
+  .navlf{
+    font-size: 2.5rem;
+  }
+  .offcanvas-title{
+    font-size: 4ren;
+  }
+  .bookingbg{
+    background: #8df2da;
+  }
+  .user_card{
+  
+  }
+  #form-title{
+    font-size: 3rem;
   }
