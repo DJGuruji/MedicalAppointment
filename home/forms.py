@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from .models import Booking
-
+import datetime
 class CreateUserForm(UserCreationForm):
   class Meta:
     model = User
@@ -18,7 +18,7 @@ class Bookingform(forms.ModelForm):
     fields = '__all__'
     
     widgets = {
-      'booking_date' : DateInput(),
+      'booking_date' : DateInput(attrs={'min':datetime.date.today()}),
     }
     
     labels = {
