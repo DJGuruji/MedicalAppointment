@@ -21,5 +21,14 @@ class Bookingform(forms.ModelForm):
       'booking_date' : DateInput(),
     }
     
+    labels = {
+      'p_name' : 'Patient Name',
+      'p_phone' : 'Patient Phone',
+      'p_email' : 'Patient Email',
+      'doc_name' : 'Choose Doctor',
+      'booked_on' : 'Choose Date',
+      
+    }
+    
     
     

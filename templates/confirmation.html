@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>confirmation</title>
+
+  <link rel="stylesheet" href="{% static '/css/base.css' %}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <style>
+    body {
+      font-family: 'Metrophobic', sans-serif;
+    }
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #7abecc !important;
+    }
+    .user_card {
+      width: 350px;
+      margin-top: auto;
+      margin-bottom: auto;
+      background: #74cfbf;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
+
+    }
+
+    .login_container {
+      padding: 0 2rem;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <nav class=" sticky-top nav bg-info text-white  d-flex justify-content-between flex-wrap align-content-around">
+
+    <ul class="list-unstyled d-flex ">
+      <li class="p-3 fw-bold my-auto "><a class=" navl text-decoration-none"href="{% url 'home' %}">Home</a></li>
+      <li class=" fw-bold p-3 my-auto "><a class="navl text-decoration-none"href="{% url 'about' %}">About</a></li>
+      <li class=" fw-bold p-3 my-auto "><a class="navl  text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
+
+      <li class="fw-bold p-3 my-auto "><a class="navl   text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
+    </ul>
+    <ul class="list-unstyled ">
+      <li class=" p-3 t my-auto "><a class="navl mb-3 fw-bold text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
+      </li>
+
+    </ul>
+
+  </nav>
+  <div class="bg-info p-2 ">
+    <h3 class="p-1 fw-bold text-primary navu ml-4 fst-italic ">Hello {{request.user}}</h3>
+  </div>
+
+
+
+  <div class="container h-75">
+    <div class="d-flex justify-content-center h-75">
+      <div class="user_card">
+        <div class="d-flex justify-content-center">
+
+
+          <h3 id="form-title"class="text-white fs-1 fw-bold listcontact">Confirmation </h3>
+        </div>
+        <div class="d-flex justify-content-center form_container">
+          <div class="alert p-4 text-center alert-success fs-1 shadow-lg" role="alert ">
+            Your appointment was created!
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="fixed-bottom w-full text-white foot ">
+    <ul class="list-unstyled d-flex justify-content-around ">
+
+      <li class=" p-3 my-auto "><a class="navl fw-bold lif text-dark   text-decoration-none"href="{% url 'contact' %}">Emergency </a>
+      </li>
+      <li class=" p-3 "><a class="text-decoration-none fw-bold lif text-dark navl"href="https://github.com/DJGuruji">GitHub</a>
+      </li>
+      <li class=" p-3  "><a class="navl lifl fw-bold text-decoration-none"href="https://www.linkedin.com/in/krishnanath-s-24055a227">Linkedin</a>
+      </li>
+      <li class=" p-3 "><a class="navl text-danger fw-bold text-decoration-none "href="https://instagram.com/__krishnanath?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">Instagram</a>
+      </li>
+
+    </ul>
+
+  </footer>
+</body>
+</html>

@@ -1,19 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
 
-{% extends 'base.html' %}
+  <link rel="stylesheet" href="{% static '/css/base.css' %}">
 
-{% block title %}
-booking
-{% endblock %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <style>
+    body {
+      font-family: 'Metrophobic', sans-serif;
+    }
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
 
-{% block content %}
-<h1 class="text-center fs-1 ">
-  Make An Appointment
-</h1>
-<div class="container ">
-<form action="" class="uniForm" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  
-</form>
+      background: #fff
+    }
+    .user_card {
+      margin-top: auto;
+      margin-bottom: auto;
+      background: #b7bec0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
+
+    }
+
+    .form_container {
+      margin-top: 20px;
+    }
+
+    form-title {
+      color: #fff;
+    }
+    .login_btn {
+      width: 100%;
+      color: white !important;
+    }
+    .login_btn:focus {
+      box-shadow: none !important;
+      outline: 0px !important;
+    }
+    .login_container {
+      padding: 0 2rem;
+    }
+    .input-group-text {
+      background: #f7ba5b !important;
+      color: white !important;
+      border: 0 !important;
+      border-radius: 0.25rem 0 0 0.25rem !important;
+    }
+    .input_user,
+    .input_pass:focus {
+      box-shadow: none !important;
+      outline: 0px !important;
+    }
+  </style>
+</head>
+
+
+
+
+<body>
+  <nav class=" sticky-top nav bg-info text-white  d-flex justify-content-between flex-wrap align-content-around">
+
+    <ul class="list-unstyled d-flex ">
+      <li class="p-3 fw-bold my-auto "><a class=" navl text-decoration-none"href="{% url 'home' %}">Home</a></li>
+      <li class=" fw-bold p-3 my-auto "><a class="navl text-decoration-none"href="{% url 'about' %}">About</a></li>
+      <li class=" fw-bold p-3 my-auto "><a class="navl  text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
+
+      <li class="fw-bold p-3 my-auto "><a class="navl   text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
+    </ul>
+    <ul class="list-unstyled ">
+      <li class=" p-3 t my-auto "><a class="navl mb-3 fw-bold text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
+      </li>
+
+    </ul>
+
+  </nav>
+  <div class="bg-info p-2 ">
+    <h3 class="p-1 fw-bold text-primary navu ml-4 fst-italic ">Hello {{request.user}}</h3>
+  </div>
+
+  <div class="container h-100 ">
+    <div class="d-flex justify-content-center h-75  ">
+      <div class="user_card pt-4 pb-5 ps-4 pe-4 w-75 h-50">
+        <div class="d-flex justify-content-center">
+          <h3 id="form-title"class=" text-white fs-1 p-3 ">Book An Appointment</h3>
+        </div>
+        <div class="d-flex justify-content-center form_container">
+
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class="input-group text-center mb-5 fs-3 ">
+              {{ form.p_name.label}} :
+              <div class=" input-group-append">
+                {{ form.p_name}}
+              </div>
+            </div>
+            <div class="fs-3 input-group mb-5">
+              {{ form.p_phone.label}} :
+              <div class="input-group-append">
+                {{ form.p_phone }}
+              </div>
+
+            </div>
+            <div class="fs-3 input-group mb-5">
+              {{ form.p_email.label}} :
+              <div class="input-group-append">
+                {{ form.p_email }}
+              </div>
+
+            </div>
+            <div class="fs-3 input-group mb-4">
+              {{ form.doc_name.label}} :
+              <div class="input-group-append">
+                {{ form.doc_name}}
+              </div>
+
+            </div>
+            <div class="fs-3 input-group ">
+              {{ form.booking_date.label}} :
+            </div>
+            <div class="input-group-append ">
+              {{ form.booking_date }}
+            </div>
+
+            <div class="d-flex justify-content-center mt-5 login_container">
+              <input class="btn login_btn btn-danger" type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+        {{ form.errors }}
+      </div>
+    </div>
+  </div>
 </div>
-{% endblock %}
+
+<!--<div class="form_container d-flex justify-content-center  my-auto p-4 form_card  w-75 mx-auto align-items-center">
+      <form action="" class="d-flex flex-column justify-content-center fs-1 text-center form_card p-6" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    				   		<div class="d-flex mt-3 w-25 justify-content-center">
+    				 			<input class="btn text-center text-white submit_btn bg-danger" type="submit" value="Submit">
+    				   		</div>
+
+      </form>
+    </div> -->
+<footer class="sticky-bottom-0 w-full text-white foot ">
+  <ul class="list-unstyled d-flex justify-content-around ">
+
+    <li class=" p-3 my-auto "><a class="navl fw-bold lif text-dark   text-decoration-none"href="{% url 'contact' %}">Emergency </a>
+    </li>
+    <li class=" p-3 "><a class="text-decoration-none fw-bold lif text-dark navl"href="https://github.com/DJGuruji">GitHub</a>
+    </li>
+    <li class=" p-3  "><a class="navl lifl fw-bold text-decoration-none"href="https://www.linkedin.com/in/krishnanath-s-24055a227">Linkedin</a>
+    </li>
+    <li class=" p-3 "><a class="navl text-danger fw-bold text-decoration-none "href="https://instagram.com/__krishnanath?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">Instagram</a>
+    </li>
+
+  </ul>
+
+</footer>
+<script>
+  var form_fields = document.getElementsByTagName('input')
+  form_fields[1].placeholder = 'Enter Patient name..';
+  form_fields[2].placeholder = 'Phone..';
+  form_fields[3].placeholder = 'Enter email...';
+  form_fields[4].placeholder = 'Select a  date...';
+  for (var field in form_fields) {
+    form_fields[field].className += ' form-control'
+  }
+</script>
+</body>
+</html>

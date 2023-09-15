@@ -47,3 +47,8 @@ html{
 .lifl{
   color: #2975f0;
 }
+
+  .submit_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }

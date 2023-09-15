@@ -72,6 +72,12 @@ def booking(request):
   dict_form = {
     'form' : form
   }
+  
+  if request.method == 'POST':
+    form = Bookingform(request.POST)
+    if form.is_valid():
+      form.save()
+      return render(request,'confirmation.html')
   return render(request, 'booking.html',dict_form)
 
 @login_required(login_url ='login') 
