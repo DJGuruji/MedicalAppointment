@@ -140,6 +140,9 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD =os.environ.get('EMAIL_HOST_PASSWORD')
 
 
+MEDIA_ROOT = BASE_DIR/'uploads'
+MEDIA_URL = '/media/'
+
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
     "site_title": "Medical Appointment ",
@@ -272,3 +275,5 @@ JAZZMIN_SETTINGS = {
     # Add a language dropdown into the admin
     #"language_chooser": True,
 }
+
+

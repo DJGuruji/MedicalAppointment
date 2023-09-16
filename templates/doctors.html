@@ -9,6 +9,7 @@ doctors
 {% for d in dept %}
 <div class="card w-100 p-5 ">
   <div class="card-body shadow-lg py-4">
+    <img class="card-img-top" src="{{ d.doc_image.url }}" class="h-25 "alt="Card image cap">
     <h2 class="card-title listcontact text-center fw-bolder p-2 ">Dr.{{d.doc_name}} </h2>
     <h3 class="card-subtitle listcontact mb-2 text-body-secondary fonts text-center">Specialized in :{{d.doc_spec}}</h3>
     <p class="card-text listcontact text-center">Department:
