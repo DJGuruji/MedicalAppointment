@@ -151,10 +151,10 @@ JAZZMIN_SETTINGS = {
     "site_brand": "MA",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "",
+    "site_logo": "./img/MAL.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    "login_logo": None,
+    "login_logo": "./img/MAL.png",
 
     # Logo to use for login form in dark themes (defaults to login_logo)
     "login_logo_dark": None,
@@ -166,7 +166,7 @@ JAZZMIN_SETTINGS = {
     "site_icon": "MA",
 
     # Welcome text on the login screen
-    "welcome_sign": "Welcome To Medical Appointment Administration",
+    "welcome_sign": " Medical Appointment Administration",
 
     # Copyright on the footer
     "copyright": "Krishnanath.S",
