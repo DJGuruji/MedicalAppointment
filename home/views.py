@@ -10,8 +10,7 @@ from django.contrib import messages
 from .forms import CreateUserForm, Bookingform
 from .models import *
 
-
-
+  
 def register(request):
   if request.user.is_authenticated:
     return redirect('home')
