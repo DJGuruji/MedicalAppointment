@@ -1,6 +1,6 @@
 ## Medical Appointment 
-'''
 
+```
 #create virtual environment
 
 python -m venv <venv name>
@@ -21,4 +21,4 @@ python manage.py makemigrations python manage.py migrate
 #Finally Run The project by
 
 python manage.py runserver
-'''
+```
