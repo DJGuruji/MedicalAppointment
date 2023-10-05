@@ -1,16 +1,17 @@
 ## Medical Appointment 
 
 ```
+
+#Clone the repo👾 https://github.com/DJGuruji/MedicalAppointment 
+
+#Open The Folder📂 cd MedicalAppointment
+
 #create virtual environment
 
 python -m venv <venv name>
 
 #Activate venv
 source <your venv name>/bin/activate
-
-#Clone the repo👾 https://github.com/DJGuruji/MedicalAppointment 
-
-#Open The Folder📂 cd MedicalAppointment
 
 #Install requirements🎯
 pip install -r requirements.txt

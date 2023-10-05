@@ -155,7 +155,7 @@ JAZZMIN_SETTINGS = {
     "site_brand": "MA",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "./img/MAL.png",
+    "site_logo": "",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
     "login_logo": "./img/MAL.png",
@@ -170,7 +170,7 @@ JAZZMIN_SETTINGS = {
     "site_icon": "MA",
 
     # Welcome text on the login screen
-    "welcome_sign": " Medical Appointment Administration",
+    "welcome_sign": " Medical Appoin",
 
     # Copyright on the footer
     "copyright": "Krishnanath.S",
@@ -194,13 +194,13 @@ JAZZMIN_SETTINGS = {
                 {"name": "View site",  "url": "home", "permissions": ["auth.view_user"]},
 
         # external url that opens in a new window (Permissions can be added)
-        {"name": "Support", "url": "https://github.com/DJGuruji/MedicalAppointment", "new_window": True},
+        {"name": "Support", "url": "https://github.com/DJGuruji/Dbend", "new_window": True},
 
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"},
 
         # App with dropdown menu to all its models pages (Permissions checked against models)
-        {"app": "Hbooking"},
+        {"app": "Dbend"},
     ],
 
     #############
@@ -209,7 +209,7 @@ JAZZMIN_SETTINGS = {
 
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        {"name": "Support", "url": "https://github.com/DJGuruji/MedicalAppointment", "new_window": True},
+        {"name": "Support", "url": "https://github.com/DJGuruji/Dbend", "new_window": True},
         {"model": "auth.user"}
     ],
 
