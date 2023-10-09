@@ -22,7 +22,8 @@ class Bookingform(forms.ModelForm):
     
     widgets = {
       'booking_date' : DateInput(attrs={'min': datetime.date.today() }),
-      'booking_time' : TimeInput(attrs={'min': '8', 'max': '17'})
+     
+      'booking_time' : TimeInput()
       
     }
     
