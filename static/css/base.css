@@ -5,7 +5,6 @@
 }
 
 .foot{
-  height: 10rem;
   background: #b8c4d6;
 }
 html{
@@ -57,19 +56,12 @@ html{
   .headertext{
     font-size:4rem;
   }
-  .navlf{
-    font-size: 2.5rem;
-  }
+  
   .offcanvas-title{
     font-size: 4ren;
   }
-  .bookingbg{
-   
-  }
-  .user_card{
-  
-  }
+ 
   #form-title{
     font-size: 3rem;
   }
-  
+ 

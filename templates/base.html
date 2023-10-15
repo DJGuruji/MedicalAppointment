@@ -11,83 +11,120 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-{% load bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-<style>
-  body {
-    font-family: 'Metrophobic', sans-serif;
-  }
-</style>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <style>
+    body {
+      font-family: 'Metrophobic', sans-serif;
+    }
+    footer{
+      
+      background: #f0fcfe;
+    }
+  </style>
 </head>
 <body>
-<nav class="p-6 sticky-top">
-<div class="bg-info ">
+  <nav class="p-6 sticky-top">
+    <div class="bg-info ">
 
-<span class="my-auto d-flex align-content-center navbar-toggler-icon ">    <a class="p-6 ml-6 mt-3  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-<i class="fa-sharp fa-solid fa-bars"></i>
-</a>
-</span>
+      <span class="my-auto d-flex align-content-center navbar-toggler-icon ">    <a class="p-6 ml-6 mt-3  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <i class="fa-sharp fa-solid fa-bars"></i>
+      </a>
+      </span>
 
-<h1 class="text-white headertext  fw-bold text-center my-auto p-2">Medical Appointment
-</h1>
-</div>
+      <h1 class="text-white headertext  fw-bold text-center my-auto p-2">Medical Appointment
+      </h1>
+    </div>
 
-<div class="offcanvas w-75 w-lg-50 w-md-50 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-<div class=" offcanvas-header ">
-<img src="{% static '/img/MAL.png' %}" class="w-25  float-center">
-<h1 class="offcanvas-title p-4 text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h1>
-<button type="button" class="btn-close mr-3 btn-outline-danger p-3 ml-1 fs-1   " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="offcanvas w-75 w-lg-50 w-md-50 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class=" offcanvas-header ">
+        <img src="{% static '/img/MAL.png' %}" class="w-25  float-center">
+        <h1 class="offcanvas-title p-4 text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h1>
+        <button type="button" class="btn-close mr-3 btn-outline-danger p-3 ml-1 fs-1   " data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
-</div>
-<div class="bg-info p-2 ">
-<h3 class="p-1  text-white navu listcontact ml-4 fst-italic ">Hello {{request.user}}</h3>
-</div>
-<div class="offcanvas-body">
-<div>
-<ul class="list-unstyled  ">
-<li class="p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'home' %}">Home</a></li>
+      </div>
+      <div class="bg-info p-2 ">
+        <h3 class="p-1  text-white navu listcontact ml-4 fst-italic ">Hello {{request.user}}</h3>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <ul class="list-unstyled  ">
+            <li class="p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'home' %}">Home</a></li>
 
-<li class=" p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'about' %}">About</a></li>
+            <li class=" p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'about' %}">About</a></li>
 
-<li class="  p-5 text-center my-auto "><a class="navl   fw-bold text-info text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
+            <li class="  p-5 text-center my-auto "><a class="navl   fw-bold text-info text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
 
-<li class=" p-5 text-center my-auto "><a class="navl  fw-bold text-info text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
-{% if user.is_authenticated and user.is_superuser or user.is_staff  %}
-<li class=" p-5 text-center my-auto">
-<a class="navl fw-bold  text-info text-decoration-none" href="/admin/">Admin </a>
-</li>
-{% endif %}
+            <li class=" p-5 text-center my-auto "><a class="navl  fw-bold text-info text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
 
-<li class=" p-5 text-center my-auto "><a class="navl fw-bold  text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
-</li>
-</ul>
+            <li class=" p-5 text-center my-auto "><a class="navl  fw-bold text-info text-decoration-none"href="{% url 'contact' %}">Contact</a></li>
 
 
-</div>
+            {% if user.is_authenticated and user.is_superuser or user.is_staff  %}
+            <li class=" p-5 text-center my-auto">
+              <a class="navl fw-bold  text-info text-decoration-none" href="/admin/">Admin </a>
+            </li>
+            {% endif %}
 
-</div>
-</div>
-</nav>
+            <li class=" p-5 text-center my-auto "><a class="navl fw-bold  text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>
 
-{% block content %}
-{% endblock %}
 
-<footer class="sticky-bottom w-full text-white foot ">
-<ul class="list-unstyled d-flex justify-content-around ">
+        </div>
 
-<li class=" p-1 my-auto "><a class="navlf fw-bold lif  text-dark   text-decoration-none"href="{% url 'contact' %}">Emergency </a>
-</li>
-<li class=" p-2 "><a class="text-decoration-none  fw-bold lif text-dark navlf "href="https://github.com/DJGuruji">GitHub</a>
-</li>
-<li class=" p-2  "><a class="navlf lifl fw-bold  text-decoration-none"href="https://www.linkedin.com/in/krishnanath-s-24055a227">Linkedin</a>
-</li>
-<li class=" p-2 "><a class="navlf text-danger fw-bold text-decoration-none "href="https://instagram.com/__krishnanath?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">Instagram</a>
-</li>
+      </div>
+    </div>
+  </nav>
 
-</ul>
+  {% block content %}
+  {% endblock %}
 
-</footer>
+  <footer class="sticky-bottom ">
+
+    <div class="mt-2 d-flex justify-content-center">
+      <p class="fs-1 text-primary fw-bold">
+        EMERGENCY CONTACT : 7473392962
+      </p>
+    </div>
+    <div class=" ">
+      <ul class="d-flex justify-content-center list-unstyled listcontact">
+
+        <li class="p-2 mx-3 ">
+          <a class="" href="https://github.com/DJGuruji/MedicalAppointment">
+            <i class="fa-brands fa-github "></i>
+
+          </a>
+        </li>
+        <li class="p-2 mx-3">
+
+          <a class=" "href="https://instagram.com/__krishnanath?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">
+            <span class="w-25">
+              <i class=" fa-brands fa-square-instagram "></i>
+            </span>
+          </a>
+        </li>
+        <li class="p-2 mx-3 ">
+
+          <a class=""href="https://www.linkedin.com/in/krishnanath-s-24055a227">
+
+            <i class="fa-brands fa-linkedin "></i>
+
+          </a>
+        </li>
+      </ul>
+ 
+
+    </div>
+   
+<div class="d-flex justify-content-center ">
+      <p class="fs-2 my-auto">
+        &copy; 2023 Medical Appointment
+      </p>
+    </div>
+
+  </footer>
 
 </body>
 </html>

@@ -86,6 +86,7 @@ def booking(request):
 @login_required(login_url ='login') 
 def contact(request):
   return render(request, 'contact.html')
+ 
   
 @login_required(login_url ='login') 
 def doctors(request):
