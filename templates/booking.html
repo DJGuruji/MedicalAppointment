@@ -23,9 +23,10 @@
      height: 100%; 
      margin: 0; 
      padding: 0; 
-  
+
      background: #fff 
    } 
+
    .user_card { 
      margin-top: auto; 
      margin-bottom: auto; 
@@ -47,6 +48,7 @@
    .login_btn { 
      width: 100%; 
      color: white !important; 
+     height:60px;
     
    } 
    .login_btn:focus { 
@@ -129,17 +131,18 @@
  <div class="h-100"> 
  <div class="d-flex justify-content-center align-items-center h-100"> 
 <div class="user_card mt-5 pt-5  pb-5 ps-4 pe-4 h-75  w-75 "> 
-<div class="d-flex justify-content-center">
-  <img src="{% static '/img/MAL.png' %}" class="w-50"></div>
+<div class="d-flex justify-content-center"> 
+   <img src="{% static '/img/MAL.png' %}" class="w-25"></div>
  <div class="d-flex justify-content-center align-items-center"> 
   
  <h3 id="form-title"class="  navl pb-5    ">Book An Appointment</h3> 
   
  </div> 
- <div class="d-flex justify-content-center "> 
+
   
- <form method="POST" action="" class="text-center"> 
+ <form method="POST" action="" class="text-center form-control form-control-lg "> 
  {% csrf_token %} 
+ 
  <div class=" input-group text-center fs-1"> 
  {{ form.p_name.label}} : 
  </div> 
@@ -151,14 +154,14 @@
  {{ form.p_phone.label}} : 
   
  </div> 
- <div class=" input-group-append mb-5"> 
+ <div class=" input-group-append mb-2"> 
  {{ form.p_phone }} 
  </div> 
  <div class="fs-1 input-group "> 
  {{ form.p_email.label}} : 
   
  </div> 
- <div class=" input-group-append mb-5"> 
+ <div class=" input-group-append mb-2"> 
  {{ form.p_email }} 
   
  </div> 
@@ -166,7 +169,7 @@
  {{ form.doc_name.label}} : 
   
  </div> 
- <div class="p-2 input-group-append mb-5"> 
+ <div class="p-2 input-group-append mb-2"> 
  {{ form.doc_name}} 
  </div> 
  <div class=" fs-1 input-group  "> 
@@ -216,10 +219,9 @@
   
  <script> 
  var form_fields = document.getElementsByTagName('input') 
- form_fields[1].placeholder = 'Enter Patient name..'; 
- form_fields[1].size = 29; 
+ form_fields[1].placeholder = 'Name..'; 
  form_fields[2].placeholder = 'Phone..'; 
- form_fields[3].placeholder = 'Enter email...'; 
+ form_fields[3].placeholder = 'Email...'; 
 
   
  for (var field in form_fields) { 

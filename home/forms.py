@@ -21,9 +21,12 @@ class Bookingform(forms.ModelForm):
     fields = '__all__'
     
     widgets = {
-      'booking_date' : DateInput(attrs={'min': datetime.date.today() }),
-     
-      'booking_time' : TimeInput()
+      'booking_date' : DateInput(attrs={'min': datetime.date.today() ,'style': 'height: 70px; font-size:28px;'}),
+      'p_name': forms.TextInput(attrs={'class': 'form-control','style': 'height: 70px; font-size: 28px;'}),
+      'p_phone': forms.TextInput(attrs={'class': 'form-control', 'style': 'height: 70px; font-size:28px; '}),
+      'doc_name': forms.Select(attrs={'class': 'form-control', 'style': 'height: 70px; font-size:28px; '}),
+      'p_email': forms.EmailInput(attrs={'class': 'form-control', 'style': 'height: 70px; font-size:28px; '}),
+      'booking_time' : TimeInput(attrs={'class':'form-control','style':'height:70px; font-size:28px; '}),
       
     }
     
