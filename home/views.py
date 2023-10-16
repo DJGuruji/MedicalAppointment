@@ -87,6 +87,13 @@ def booking(request):
 def contact(request):
   return render(request, 'contact.html')
  
+ 
+def appointments(request):
+  dict_book = {
+    'booking' : Booking.objects.all()
+  }
+  return render(request,'appointments.html',dict_book)
+ 
   
 @login_required(login_url ='login') 
 def doctors(request):

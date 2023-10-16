@@ -1,266 +1,270 @@
-{% load static %} 
- <!DOCTYPE html> 
- <html> 
- <head> 
-   <title>{% block title %}{% endblock %}</title> 
-  
-   <link rel="stylesheet" href="{% static '/css/base.css' %}"> 
-   <link rel="stylesheet" href="{% static '/css/login.css' %}">
-  
-   <link rel="preconnect" href="https://fonts.googleapis.com"> 
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-   <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet"> 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
- {% load bootstrap5 %} 
- {% bootstrap_css %} 
- {% bootstrap_javascript %} 
- <style> 
-   body { 
-     font-family: 'Metrophobic', sans-serif; 
-   } 
-   body, 
-   html { 
-     height: 100%; 
-     margin: 0; 
-     padding: 0; 
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
 
-     background: #fff 
-   } 
-   footer{
-      
+  <link rel="stylesheet" href="{% static '/css/base.css' %}">
+  <link rel="stylesheet" href="{% static '/css/login.css' %}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <style>
+    body {
+      font-family: 'Metrophobic', sans-serif;
+    }
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+
+      background: #fff
+    }
+    footer {
+
       background: #c7eef8;
     }
 
-   .user_card { 
-     margin-top: auto; 
-     margin-bottom: auto; 
-    
-   
-     display: flex; 
-     justify-content: center; 
-     flex-direction: column; 
-     padding: 10px; 
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-     border-radius: 5px; 
-  
-   } 
-  
-  
- 
-   .login_btn { 
-     width: 100%; 
-     color: white !important; 
-     height:60px;
-    
-   } 
-   .login_btn:focus { 
-     box-shadow: none !important; 
-     outline: 0px !important; 
-   } 
-   .login_container { 
-     padding: 0 2rem; 
-   } 
-   .input-group-text { 
-     background: #f7ba5b !important; 
-     color: white !important; 
-     border: 0 !important; 
-     border-radius: 0.25rem 0 0 0.25rem !important; 
-   } 
-   .input_user, 
-   .input_pass:focus { 
-     box-shadow: none !important; 
-     outline: 0px !important; 
-   } 
- </style> 
- </head> 
-  
-  
-  
-  
- <body> 
-  
-  
- <nav class="p-6 sticky-top"> 
- <div class="bg-info "> 
-  
- <span class="my-auto d-flex align-content-center navbar-toggler-icon ">    <a class="p-6 ml-6 mt-3  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-   <i class="fa-sharp fa-solid fa-bars"></i>
-</a>
-</span>
-  
- <h1 class="text-white headertext  fw-bold text-center my-auto p-2">Medical Appointment
-</h1>
- </div> 
-  
- <div class="offcanvas w-75 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"> 
- <div class=" offcanvas-header "> 
- <img src="{% static '/img/MAL.png' %}" class="w-25  float-center"> 
- <h1 class="offcanvas-title p-4 text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h1> 
- <button type="button" class="btn-close mr-3 btn-outline-danger fs-1   " data-bs-dismiss="offcanvas" aria-label="Close"></button> 
-  
- </div> 
- <div class="bg-info p-2 "> 
- <h3 class="p-1  text-white navu listcontact ml-4 fst-italic ">Hello {{request.user}}</h3> 
- </div> 
- <div class="offcanvas-body"> 
- <div> 
- <ul class="list-unstyled  "> 
- <li class=" fw-bold p-5 text-center my-auto "><a class="  navl text-info text-decoration-none"href="{% url 'home' %}">Home</a></li> 
-  
- <li class=" p-5 text-center my-auto "><a class="   fw-bold navl text-info text-decoration-none"href="{% url 'about' %}">About</a></li> 
-  
- <li class=" fw-bold  p-5 text-center my-auto "><a class="navl   text-info text-decoration-none"href="{% url 'booking' %}">Booking</a></li> 
-  
- <li class="fw-bold  p-5 text-center my-auto "><a class="navl  text-info text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li> 
-             <li class=" fw-bold p-5 text-center my-auto "><a class="navl  text-info text-decoration-none"href="{% url 'contact' %}">Contact</a></li>
-                       
- {% if user.is_authenticated and user.is_superuser or user.is_staff  %} 
- <li class="fw-bold  p-5 text-center my-auto"> 
- <a class="navl  text-info text-decoration-none" href="/admin/">Admin </a> 
- </li> 
- {% endif %} 
-  
- <li class=" fw-bold p-5 text-center my-auto "><a class="navl text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a> 
- </li> 
- </ul> 
-  
-  
- </div> 
-  
- </div> 
- </div> 
- </nav> 
-  
-  
- <div class="h-100"> 
- <div class="d-flex justify-content-center align-items-center h-100"> 
-<div class="user_card mt-5 pt-5  pb-5 ps-4 pe-4 h-75  w-75 "> 
-<div class="d-flex justify-content-center"> 
-   <img src="{% static '/img/MAL.png' %}" class="w-25"></div>
- <div class="d-flex justify-content-center align-items-center"> 
-  
- <h3 id="form-title"class="  navl pb-5    ">Book An Appointment</h3> 
-  
- </div> 
+    .user_card {
+      margin-top: auto;
+      margin-bottom: auto;
 
-  
- <form method="POST" action="" class="text-center form-control form-control-lg "> 
- {% csrf_token %} 
- 
- <div class=" input-group text-center fs-1"> 
- {{ form.p_name.label}} : 
- </div> 
- <div class=" mb-5 input-group-append "> 
- {{ form.p_name}} 
-  
- </div> 
- <div class="  fs-1 input-group "> 
- {{ form.p_phone.label}} : 
-  
- </div> 
- <div class=" input-group-append mb-2"> 
- {{ form.p_phone }} 
- </div> 
- <div class="fs-1 input-group "> 
- {{ form.p_email.label}} : 
-  
- </div> 
- <div class=" input-group-append mb-2"> 
- {{ form.p_email }} 
-  
- </div> 
- <div class="fs-1 input-group "> 
- {{ form.doc_name.label}} : 
-  
- </div> 
- <div class="p-2 input-group-append mb-2"> 
- {{ form.doc_name}} 
- </div> 
- <div class=" fs-1 input-group  "> 
- {{ form.booking_date.label }} : 
- </div> 
- <div class="  input-group-append "> 
- {{ form.booking_date }} 
- </div> 
-  
- <div class=" fs-1 input-group  "> 
- {{ form.booking_time.label }} : 
- </div> 
- <div class=" input-group-append "> 
- {{ form.booking_time }} 
- </div> 
-  
- <div class="d-flex justify-content-center mt-5 login_container"> 
- <input class="btn login_btn btn-danger p-1 fs-2 rounded " type="submit" value="Submit"> 
- </div> 
-  </div> 
- {{ form.errors }} 
- </div> 
- </form> 
 
- </div> 
- </div> 
- </div> 
-  
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
 
- <footer class="sticky-bottom ">
- 
-    <div class="d-flex justify-content-center">
-      <p class="fs-1 text-primary fw-bold">
-        EMERGENCY CONTACT : 7473392962
-      </p>
+    }
+
+
+
+    .login_btn {
+      width: 100%;
+      color: white !important;
+      height: 60px;
+
+    }
+    .login_btn:focus {
+      box-shadow: none !important;
+      outline: 0px !important;
+    }
+    .login_container {
+      padding: 0 2rem;
+    }
+    .input-group-text {
+      background: #f7ba5b !important;
+      color: white !important;
+      border: 0 !important;
+      border-radius: 0.25rem 0 0 0.25rem !important;
+    }
+    .input_user,
+    .input_pass:focus {
+      box-shadow: none !important;
+      outline: 0px !important;
+    }
+  </style>
+</head>
+
+
+
+
+<body>
+
+
+  <nav class="p-6 sticky-top">
+    <div class="bg-info ">
+
+      <span class="my-auto d-flex align-content-center navbar-toggler-icon ">    <a class="p-6 ml-6 mt-3  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <i class="fa-sharp fa-solid fa-bars"></i>
+      </a>
+      </span>
+
+      <h1 class="text-white headertext  fw-bold text-center my-auto p-2">Medical Appointment
+      </h1>
     </div>
+
+    <div class="offcanvas w-75 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class=" offcanvas-header ">
+        <img src="{% static '/img/MAL.png' %}" class="w-25  float-center">
+        <h1 class="offcanvas-title p-4 text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h1>
+        <button type="button" class="btn-close mr-3 btn-outline-danger fs-1   " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+      </div>
+      <div class="bg-info p-2 ">
+        <h3 class="p-1  text-white navu listcontact ml-4 fst-italic ">Hello {{request.user}}</h3>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <ul class="list-unstyled  ">
+            <li class=" fw-bold p-5 text-center my-auto "><a class="  navl text-info text-decoration-none"href="{% url 'home' %}">Home</a></li>
+
+            <li class=" p-5 text-center my-auto "><a class="   fw-bold navl text-info text-decoration-none"href="{% url 'about' %}">About</a></li>
+
+            <li class=" fw-bold  p-5 text-center my-auto "><a class="navl   text-info text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
+
+            <li class="fw-bold  p-5 text-center my-auto "><a class="navl  text-info text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
+            <li class=" fw-bold p-5 text-center my-auto "><a class="navl  text-info text-decoration-none"href="{% url 'contact' %}">Contact</a></li>
+
+            {% if user.is_authenticated and user.is_superuser or user.is_staff  %}
+            <li class="fw-bold  p-5 text-center my-auto">
+              <a class="navl  text-info text-decoration-none" href="/admin/">Admin </a>
+            </li>
+            <li class=" p-5 text-center my-auto">
+              <a class="navl fw-bold  text-info text-decoration-none" href="{% url 'appointment' %}">Appointments</a>
+            </li>
+            {% endif %}
+
+            <li class=" fw-bold p-5 text-center my-auto "><a class="navl text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>
+
+
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="h-100">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="user_card mt-5 pt-5  pb-5 ps-4 pe-4 h-75  w-75 ">
+        <div class="d-flex justify-content-center">
+          <img src="{% static '/img/MAL.png' %}" class="w-25">
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+
+          <h3 id="form-title"class="  navl pb-5    ">Book An Appointment</h3>
+
+        </div>
+
+
+        <form method="POST" action="" class="text-center form-control form-control-lg ">
+          {% csrf_token %}
+
+          <div class=" input-group text-center fs-1">
+            {{ form.p_name.label}} :
+          </div>
+          <div class=" mb-5 input-group-append ">
+            {{ form.p_name}}
+
+          </div>
+          <div class="  fs-1 input-group ">
+            {{ form.p_phone.label}} :
+
+          </div>
+          <div class=" input-group-append mb-2">
+            {{ form.p_phone }}
+          </div>
+          <div class="fs-1 input-group ">
+            {{ form.p_email.label}} :
+
+          </div>
+          <div class=" input-group-append mb-2">
+            {{ form.p_email }}
+
+          </div>
+          <div class="fs-1 input-group ">
+            {{ form.doc_name.label}} :
+
+          </div>
+          <div class="p-2 input-group-append mb-2">
+            {{ form.doc_name}}
+          </div>
+          <div class=" fs-1 input-group  ">
+            {{ form.booking_date.label }} :
+          </div>
+          <div class="  input-group-append ">
+            {{ form.booking_date }}
+          </div>
+
+          <div class=" fs-1 input-group  ">
+            {{ form.booking_time.label }} :
+          </div>
+          <div class=" input-group-append ">
+            {{ form.booking_time }}
+          </div>
+
+          <div class="d-flex justify-content-center mt-5 login_container">
+            <input class="btn login_btn btn-danger p-1 fs-2 rounded " type="submit" value="Submit">
+          </div>
+        </div>
+        {{ form.errors }}
+      </div>
+    </form>
+
+  </div>
+</div>
+</div>
+
+
+<footer class="sticky-bottom ">
+
+<div class="d-flex justify-content-center">
+<p class="fs-1 text-primary fw-bold">
+EMERGENCY CONTACT : 7473392962
+</p>
+</div>
 <div class=" ">
-  <ul class="d-flex justify-content-center list-unstyled listcontact">
-    
-    <li class="p-4 ">
-        <a class="" href="https://github.com/DJGuruji/MedicalAppointment">
-    <i class="fa-brands fa-github "></i>
-    
-  </a>
-    </li>
-    <li class="p-4 ">
-            
-      <a class=" "href="https://instagram.com/__krishnanath?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">
-     <span class="w-25">
-       <i class=" fa-brands fa-square-instagram "></i>
-       </span>
-        </a>
-    </li>
-    <li class="p-4  ">
-       
-      <a class=""href="https://www.linkedin.com/in/krishnanath-s-24055a227">
-      
+<ul class="d-flex justify-content-center list-unstyled listcontact">
+
+<li class="p-4 ">
+<a class="" href="https://github.com/DJGuruji/MedicalAppointment">
+<i class="fa-brands fa-github "></i>
+
+</a>
+</li>
+<li class="p-4 ">
+
+<a class=" "href="https://instagram.com/__krishnanath?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">
+<span class="w-25">
+<i class=" fa-brands fa-square-instagram "></i>
+</span>
+</a>
+</li>
+<li class="p-4  ">
+
+<a class=""href="https://www.linkedin.com/in/krishnanath-s-24055a227">
+
 <i class="fa-brands fa-linkedin "></i>
-        
-        </a>
-    </li>
-  </ul>
-    
 
-    </div>
-    <div class="d-flex justify-content-center">
-      <p class="fs-2 my-auto">
-        &copy; 2023 Medical Appointment
-      </p>
-    </div>
+</a>
+</li>
+</ul>
 
 
-  </footer>
+</div>
+<div class="d-flex justify-content-center">
+<p class="fs-2 my-auto">
+&copy; 2023 Medical Appointment
+</p>
+</div>
 
-  
- <script> 
- var form_fields = document.getElementsByTagName('input') 
- form_fields[1].placeholder = 'Name..'; 
- form_fields[2].placeholder = 'Phone..'; 
- form_fields[3].placeholder = 'Email...'; 
 
-  
- for (var field in form_fields) { 
- form_fields[field].className += ' form-control' 
- } 
- </script> 
- </body> 
- </html>
+</footer>
+
+
+<script>
+var form_fields = document.getElementsByTagName('input')
+form_fields[1].placeholder = 'Name..';
+form_fields[2].placeholder = 'Phone..';
+form_fields[3].placeholder = 'Email...';
+
+
+for (var field in form_fields) {
+form_fields[field].className += ' form-control'
+}
+</script>
+</body>
+</html>

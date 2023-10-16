@@ -9,10 +9,12 @@ home
 <h1 class="text-center p-1 fw-bold text-success listcontact ">Our Department</h1>
 {% for d in dept %}
 <div class="card w-100 p-5 shadow-lg ">
+      <img class="card-img-top" src="{{ d.dep_image.url }}" class="h-25 "alt="Card image cap">
+    
     <h2 class="listcontact fw-bold card-title text-center">{{d.dep_name}} </h2>
   <div class="card-body  p-4 ">
     
-    <p class="card-text fonts listcontact  pd">
+    <p class="card-text text-start fonts listcontact  pd">
       {{ d.dep_desc }}
     </p>
 

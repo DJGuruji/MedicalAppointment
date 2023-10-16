@@ -1,8 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Department(models.Model):
   dep_name = models.CharField(max_length= 100,null=True)
   dep_desc = models.TextField(null=True)
+  dep_image = models.ImageField(upload_to='dep',null=True)
+  
+  
   
   def __str__(self):
     return self.dep_name
@@ -27,6 +32,8 @@ class Booking(models.Model):
   booking_date = models.DateField(null=True)
   booking_time = models.TimeField(null=True)
   booked_on = models.DateField(auto_now = True)
+  
+  
   
   def __str__(self):
     return self.p_name

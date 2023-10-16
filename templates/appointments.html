@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+doctors
+{% endblock %}
+{% block content %}
+
+<h1 class="fs-1 p-2 mt-5 fw-bold  text-center">All Appointments Appere Here </h1>
+<div class="p-2 fs-4">
+  <table class="table border border-primary  ">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Doctor</th>
+      <th scope="col">Booked On</th>
+      <th scope="col">Booking Date</th>
+      <th scope="col">Booking Time</th>
+    </tr>
+  </thead>
+  <tbody>
+          {% for d in booking %}
+    <tr>
+    
+      <td>{{ d.id }}</td>
+      <td>{{ d.p_name }}</td>
+      <td>{{ d.p_phone }}</td>
+      <td>{{ d.p_email }}</td> 
+      <td>{{ d.doc_name }}</td>
+      <td>{{ d.booked_on }}</td>
+      <td>{{ d.booking_date }}</td>
+      <td>{{ d.booking_time }}</td>
+      <br>
+
+    </tr>
+       {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock %}
