@@ -144,7 +144,6 @@ EMAIL_USE_TLS =os.environ.get('EMAIL_USE_TLS')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD =os.environ.get('EMAIL_HOST_PASSWORD')
 
-
 MEDIA_ROOT = BASE_DIR/'uploads'
 MEDIA_URL = '/media/'
 

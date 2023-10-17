@@ -16,8 +16,11 @@ class Department(models.Model):
 class Doctor(models.Model):
   doc_name = models.CharField(max_length=100,null=True)
   doc_spec = models.CharField(max_length=100, null=True)
+  doc_phone = models.CharField(max_length=10,null=True)
+  doc_email = models.EmailField(null=True)
   dep_name = models.ForeignKey(Department,on_delete= models.CASCADE,null=True)
   doc_image = models.ImageField(upload_to='doctors',null=True)
+  
   
   
   def __str__(self):

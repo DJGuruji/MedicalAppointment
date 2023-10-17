@@ -22,13 +22,13 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: #7abecc !important;
+     
     }
     .user_card {
-      width: 350px;
+      
       margin-top: auto;
       margin-bottom: auto;
-      background: #74cfbf;
+     
       position: relative;
       display: flex;
       justify-content: center;
@@ -51,17 +51,17 @@
 <body>
 
   
-<nav class="p-6 sticky-top">
-<div class="bg-info ">
+  <nav class="p-6 sticky-top">
+    <div class="bg-info ">
 
-<span class="mt-2 navbar-toggler-icon ">    <a class="p-4 ml-5  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-<i class="fa-sharp fa-solid fa-bars"></i>
-</a>
-</span>
+      <span class="my-auto d-flex align-content-center navbar-toggler-icon ">    <a class="p-6 ml-6 mt-3  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <i class="fa-sharp fa-solid fa-bars"></i>
+      </a>
+      </span>
 
-<h1 class="text-white headertext  fw-bold text-center p-4 ">Medical Appointment
-</h1>
-</div>
+      <h1 class="text-white headertext  fw-bold text-center my-auto p-2">Medical Appointment
+      </h1>
+    </div>
 
 <div class="offcanvas w-75 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 <div class=" offcanvas-header ">
@@ -71,7 +71,8 @@
 
 </div>
 <div class="bg-info p-2 ">
-<h3 class="p-1  text-white navu listcontact ml-4 fst-italic ">Hello {{request.user}}</h3>
+  {{ for 
+<h3 class="p-1  text-white navu listcontact ml-4 fst-italic ">Hello {{ request.user }}</h3>
 </div>
 <div class="offcanvas-body">
 <div>
@@ -105,24 +106,24 @@
 
 
 
-  <div class="container h-75">
-    <div class="d-flex justify-content-center h-75">
-      <div class="user_card">
-        <div class="d-flex justify-content-center">
-
-
-          <h3 id="form-title"class="text-white fs-1 fw-bold listcontact">Confirmation </h3>
-        </div>
-        <div class="d-flex justify-content-center form_container">
-          <div class="alert p-4 text-center alert-success fs-1 shadow-lg" role="alert ">
-            Your appointment was created!
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
+  <div class="container h-75"> 
+     <div class="d-flex justify-content-center h-75"> 
+       <div class="user_card"> 
+         <div class="d-flex justify-content-center"> 
+     <img src="{% static '/img/MAL.png' %}" class="w-25 float-center">
+ 
+         </div> 
+         <div class="d-flex justify-content-center form_container"> 
+           <div class="alert p-4 text-center fs-1 shadow-lg " role="alert "><p class="text-start">
+             Thankyou {{ patient }} for booking your medical appointment on {{ booking_date }} at {{ booking_time }} with {{ doctor }}. Please arrive 15 minutes early and remember to bring any necessary documentation or insurance cards. If you need to reschedule or have any questions, please contact us at medicalAppointment.com. We look forward to assisting you with your healthcare needs
+             </p>
+           </div> 
+  
+         </div> 
+  
+       </div> 
+     </div> 
+   </div>
 
   <footer class="sticky-bottom ">
 
