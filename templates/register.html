@@ -10,6 +10,13 @@
   <title>Register Form </title>
   <link rel="stylesheet" href="{% static '/css/login.css' %}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  
+  <style>
+    .error{
+      color: #ff0011;
+      font-size: 12px;
+    }
+  </style>
 
 </head>
 <body>
@@ -35,6 +42,10 @@
                
                 {{ form.password1 }}
             </div>
+            <div id="div">
+              
+            </div>
+            <div id="passwordMessage" style="color: red; display: none;">Password must be at least 8 characters long.</div>
             <div class="row">
                 <i class="fas fa-key"></i>
                
@@ -43,7 +54,11 @@
                <div class="row button" >
                     <input type="submit" value="Submit">
                 </div>
-                          {{ form.errors }}
+                <div class="error">
+                  
+                     {{ form.errors }}
+                </div>
+                       
                                       <div class="signup-link"> 
                Already have an account ? <a href="{% url 'login' %}" class="ml-2">Login</a> 
              </div>
@@ -52,8 +67,8 @@
 </div>
 
       
-      
 
+   
       
       <script>
         /* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
@@ -61,16 +76,27 @@
 		 */
 
         //Query All input fields
+        const divElement = document.getElementById('div');
+        
         var form_fields = document.getElementsByTagName('input')
         form_fields[1].placeholder = 'Username..';
         form_fields[2].placeholder = 'Email..';
         form_fields[3].placeholder = 'Enter password...';
         form_fields[4].placeholder = 'Re-enter Password...';
 
-
         for (var field in form_fields) {
           form_fields[field].className += ' form-control'
         }
+        
+        const passwordInput = document.getElementById('id_password1');
+const messageElement = document.getElementById('message');
+
+passwordInput.addEventListener("focus", () => {
+ 
+  divElement.innerHTML = "Password must have at least 8 characters.<br> Password can't be entirely numeric.<br> Can't be too similar to personal information.";
+  divElement.style.color = "red";
+  divElement.style.fontSize = "12px";
+});
       </script>
     </body>
   </html>

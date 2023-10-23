@@ -1,0 +1,52 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email send</title>
+    
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    body {
+      font-family: 'Metrophobic', sans-serif;
+    }
+    
+    .logo{
+      width: 50px ;
+      height: 50px;
+      float: center;
+    }
+    
+  
+ 
+  </style>
+    
+</head>
+<body>
+<div class="container">
+ <div class="wrapper" style="background-color:#fff; border-radius: 5px; 
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+  
+   
+        <div class="wrapc" style="background-color:#85f9bb;">
+            <div class="desc" style="padding:30px; background:white;">
+                 <img src="{% static '/img/MAL.png' %}" class="logo" alt="logo" style="width:30px; height:30px; border-radius:50%;">
+               <h1 style="color:#426df1; text-align:center; padding:10px; ">MEDICAL APPOINTMENT</h1>
+<p class="" style="text-align:left; font-size:16px; line-height:1.5; ">
+             Thankyou {{ patient }} for booking your medical appointment on {{ booking_date }} at {{ booking_time }} with {{ doctor }}. Please arrive 15 minutes early and remember to bring any necessary documentation or insurance cards. If you need to reschedule or have any questions, please contact us at medicalAppointment.com. We look forward to assisting you with your healthcare needs
+             </p>
+
+</div>
+                
+        </div>
+ </div>
+</div>
+</body>
+</html>

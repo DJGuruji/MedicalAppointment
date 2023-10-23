@@ -64,3 +64,6 @@ html{
   #form-title{
     font-size: 3rem;
   }
+.delete-button:hover{
+  background-color: #d72e5e;
+}

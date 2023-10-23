@@ -8,6 +8,8 @@ class CreateUserForm(UserCreationForm):
   class Meta:
     model = User
     fields = ['username', 'email', 'password1', 'password2']
+    widget=forms.PasswordInput(attrs={'id': 'id_password'})
+    
   
 
 class DateInput(forms.DateInput):
@@ -18,7 +20,8 @@ class TimeInput(forms.TimeInput):
 class Bookingform(forms.ModelForm):
   class Meta:
     model = Booking
-    fields = '__all__'
+   
+    exclude = ['user']
     
     widgets = {
       'booking_date' : DateInput(attrs={'min': datetime.date.today() ,'style': 'height: 70px; font-size:28px;'}),

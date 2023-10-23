@@ -28,7 +28,9 @@ class Doctor(models.Model):
 
 
 class Booking(models.Model):
+  
   p_name = models.CharField(max_length=100,null=True)
+  user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
   p_phone = models.CharField(max_length=10,null = True)
   p_email = models.EmailField()
   doc_name = models.ForeignKey(Doctor, on_delete = models.CASCADE)

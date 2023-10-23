@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   {% load bootstrap5 %}
   {% bootstrap_css %}
   {% bootstrap_javascript %}
@@ -22,13 +22,13 @@
       margin: 0;
       padding: 0;
       height: 100%;
-     
+
     }
     .user_card {
-      
+
       margin-top: auto;
       margin-bottom: auto;
-     
+
       position: relative;
       display: flex;
       justify-content: center;
@@ -50,7 +50,7 @@
 </head>
 <body>
 
-  
+
   <nav class="p-6 sticky-top">
     <div class="bg-info ">
 
@@ -63,67 +63,70 @@
       </h1>
     </div>
 
-<div class="offcanvas w-75 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-<div class=" offcanvas-header ">
-<img src="{% static '/img/MAL.png' %}" class="w-25  float-center">
-<h1 class="offcanvas-title p-4 text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h1>
-<button type="button" class="btn-close mr-3 btn-outline-danger fs-1   " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="offcanvas w-75 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class=" offcanvas-header ">
+        <img src="{% static '/img/MAL.png' %}" class="w-25  float-center">
+        <h1 class="offcanvas-title p-4 text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h1>
+        <button type="button" class="btn-close mr-3 btn-outline-danger fs-1   " data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
-</div>
-<div class="bg-info p-2 ">
-  {{ for 
-<h3 class="p-1  text-white navu listcontact ml-4 fst-italic ">Hello {{ request.user }}</h3>
-</div>
-<div class="offcanvas-body">
-<div>
-<ul class="list-unstyled  ">
-<li class="p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'home' %}">Home</a></li>
+      </div>
+      <div class="bg-info p-2 ">
+        {{ for
+        <h3 class="p-1  text-white navu listcontact ml-4 fst-italic ">Hello {{ request.user }}</h3>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <ul class="list-unstyled  ">
+            <li class="p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'home' %}">Home</a></li>
 
-<li class=" p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'about' %}">About</a></li>
+            <li class=" p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'about' %}">About</a></li>
 
-<li class="  p-5 text-center my-auto "><a class="navl   fw-bold text-info text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
+            <li class="  p-5 text-center my-auto "><a class="navl   fw-bold text-info text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
 
-<li class=" p-5 text-center my-auto "><a class="navl  fw-bold text-info text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
-{% if user.is_authenticated and user.is_superuser or user.is_staff  %}
-<li class=" p-5 text-center my-auto">
-<a class="navl fw-bold  text-info text-decoration-none" href="/admin/">Admin </a>
-</li>
-   <li class=" p-5 text-center my-auto">
+            <li class=" p-5 text-center my-auto "><a class="navl  fw-bold text-info text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
+            {% if user.is_authenticated and user.is_superuser or user.is_staff  %}
+            <li class=" p-5 text-center my-auto">
+              <a class="navl fw-bold  text-info text-decoration-none" href="/admin/">Admin </a>
+            </li>
+            <li class=" p-5 text-center my-auto">
               <a class="navl fw-bold  text-info text-decoration-none" href="{% url 'appointment' %}">Appointments</a>
             </li>
-{% endif %}
-
-<li class=" p-5 text-center my-auto "><a class="navl fw-bold  text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
-</li>
-</ul>
+            {% endif %}
+            <li class=" p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'myappointment' %}">My Appointment</a></li>
 
 
-</div>
-
-</div>
-</div>
-</nav>
+            <li class=" p-5 text-center my-auto "><a class="navl fw-bold  text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>
 
 
+        </div>
 
-  <div class="container h-75"> 
-     <div class="d-flex justify-content-center h-75"> 
-       <div class="user_card"> 
-         <div class="d-flex justify-content-center"> 
-     <img src="{% static '/img/MAL.png' %}" class="w-25 float-center">
- 
-         </div> 
-         <div class="d-flex justify-content-center form_container"> 
-           <div class="alert p-4 text-center fs-1 shadow-lg " role="alert "><p class="text-start">
-             Thankyou {{ patient }} for booking your medical appointment on {{ booking_date }} at {{ booking_time }} with {{ doctor }}. Please arrive 15 minutes early and remember to bring any necessary documentation or insurance cards. If you need to reschedule or have any questions, please contact us at medicalAppointment.com. We look forward to assisting you with your healthcare needs
-             </p>
-           </div> 
-  
-         </div> 
-  
-       </div> 
-     </div> 
-   </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="container h-75">
+    <div class="d-flex justify-content-center h-75">
+      <div class="user_card">
+        <div class="d-flex justify-content-center">
+          <img src="{% static '/img/MAL.png' %}" class="w-25 float-center">
+
+        </div>
+        <div class="d-flex justify-content-center form_container">
+          <div class="alert p-4 text-center fs-1 shadow-lg " role="alert ">
+            <p class="text-start">
+              Thankyou {{ patient }} for booking your medical appointment on {{ booking_date }} at {{ booking_time }} with {{ doctor }}. Please arrive 15 minutes early and remember to bring any necessary documentation or insurance cards. If you need to reschedule or have any questions, please contact us at <a href="www.medicalAppointment.com"class="list list-unstyled text-primary">medicalAppointment.com. </a>We look forward to assisting you with your healthcare needs
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <footer class="sticky-bottom ">
 
@@ -158,11 +161,11 @@
           </a>
         </li>
       </ul>
- 
+
 
     </div>
-   
-<div class="d-flex justify-content-center ">
+
+    <div class="d-flex justify-content-center ">
       <p class="fs-2 my-auto">
         &copy; 2023 Medical Appointment
       </p>

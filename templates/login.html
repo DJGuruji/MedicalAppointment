@@ -10,6 +10,13 @@
   <title>Login Form </title>
   <link rel="stylesheet" href="{% static '/css/login.css' %}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  
+  <style>
+    .error{
+      color: #e81212;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
 
@@ -29,16 +36,18 @@
             <input type="password" name="password" placeholder="Password..." class="form-control">
           </div>
           <div class="pass">
-            <a href="{% url 'reset_pass' %}" class="ml-2">Forgot Password?</a>
+            <a href="{% url 'reset_password' %}" class="ml-2">Forgot Password?</a>
           </div>
           <div class="row button">
             <input type="submit" value="Login">
           </div>
+          <div class="error">
           {% for message in messages %}
           <p id="message">
             {{ message }}
           </p>
           {% endfor %}
+          </div>
           <div class="signup-link">
             Don't have an account ? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
           </div>
