@@ -6,7 +6,6 @@
 
   <link rel="stylesheet" href="{% static '/css/base.css' %}">
   <link rel="icon" href="{% static '/img/MAL.png' %}" type="image/x-icon">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
@@ -70,7 +69,7 @@
               <a class="navl fw-bold  text-info text-decoration-none" href="{% url 'appointment' %}">All Appointments</a>
             </li>
             {% endif %}
-               <li class=" p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'myappointment' %}">My Appointment</a></li>
+               <li class=" p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'myappointment' %}">My Appointments</a></li>
                
 
             <li class=" p-5 text-center my-auto "><a class="navl fw-bold  text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>

@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
   
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required ,user_passes_test
   
 from django.contrib import messages
 
@@ -18,6 +18,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage,EmailMultiAlternatives
+
+from django.views.decorators.cache import never_cache
 
   
 def register(request):
@@ -162,9 +164,20 @@ def delete(request,pk):
   return render(request,'appointments.html',dict_book)
 
 
+@login_required(login_url='login')
+@never_cache
+def deletee(request, pk):
+  Booking.objects.get(pk=pk).delete()
+  user_bookings = Booking.objects.filter(user=request.user)
+  return render(request, 'myappointments.html', {'bookings': user_bookings})
 
+
+
+def is_admin(user):
+    return user.is_staff  # Assuming staff members are admins
 
 @login_required(login_url ='login') 
+@user_passes_test(is_admin, login_url='login')
 def appointments(request):
   dict_book = {
     'booking' : Booking.objects.all()
@@ -182,10 +195,10 @@ def doctors(request):
   return render(request, 'doctors.html',dict_dept)
   
   
-@login_required(login_url='login')
 
+@login_required(login_url='login')
 def myappointments(request):
     user = request.user  # Assuming you are using Django's built-in User model
     user_bookings = Booking.objects.filter(user=user)
-
     return render(request, 'myappointments.html', {'bookings': user_bookings})
+    

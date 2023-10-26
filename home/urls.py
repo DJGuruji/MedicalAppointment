@@ -14,6 +14,7 @@ path('booking',views.booking, name ='booking'),
 path('contact',views.contact, name ='contact'),
 path('doctors',views.doctors, name ='doctors'),
 path('delete/<pk>',views.delete, name='delete'),
+path('<pk>/deletee',views.delete, name='deletee'),
 path('logout',views.logout_user, name ='logout'),
 
 path('reset_pass',auth_views.PasswordResetView.as_view(template_name = "passwordreset.html"), name='reset_password'),
