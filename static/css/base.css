@@ -13,7 +13,7 @@ html{
 
 .navl ,.navu{
   font-size: 2.5rem;
-  color: #1648c7;
+  
 
 }
 .navl:hover{
@@ -39,14 +39,13 @@ html{
 }
 .listcontact{
   text-align: center;
-  font-size: 3rem;
   padding: 1rem;
 }
 .lif{
   color: #23262b;
 }
 .lifl{
-  color: #2975f0;
+
 }
 
   .submit_btn:focus {
@@ -66,4 +65,7 @@ html{
   }
 .delete-button:hover{
   background-color: #d72e5e;
+}
+.imgheight{
+  height:10px;
 }

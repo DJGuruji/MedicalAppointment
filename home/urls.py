@@ -16,10 +16,15 @@ path('doctors',views.doctors, name ='doctors'),
 path('delete/<pk>',views.delete, name='delete'),
 path('<pk>/deletee',views.delete, name='deletee'),
 path('logout',views.logout_user, name ='logout'),
-
-path('reset_pass',auth_views.PasswordResetView.as_view(template_name = "passwordreset.html"), name='reset_password'),
-path('reset_pass_sent',auth_views.PasswordResetDoneView.as_view(template_name = "passwordresetsent.html"), name='password_reset_done'),
-path('reset/<uidb64>/<token>',auth_views.PasswordResetConfirmView.as_view(template_name = "passwordresetform.html"), name='password_reset_confirm'),
-path('reset_pass_comp',auth_views.PasswordResetCompleteView.as_view(template_name = "passwordresetdone.html"), name='reset_pass_comp'),
+path('reset_pass',auth_views.PasswordResetView.as_view(template_name = "passwordreset.html"), name='reset_password'),  
+path('reset_pass_sent',auth_views.PasswordResetDoneView.as_view(template_name = "passwordresetsent.html"), name='password_reset_done'),  
   
-]
+path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(template_name = "passwordresetform.html"), name='password_reset_confirm'),  
+  
+  
+ path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'), 
+ ]
+
+
+
+

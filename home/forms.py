@@ -24,12 +24,12 @@ class Bookingform(forms.ModelForm):
     exclude = ['user']
     
     widgets = {
-      'booking_date' : DateInput(attrs={'min': datetime.date.today() ,'style': 'height: 70px; font-size:28px;'}),
-      'p_name': forms.TextInput(attrs={'class': 'form-control','style': 'height: 70px; font-size: 28px;'}),
-      'p_phone': forms.TextInput(attrs={'class': 'form-control', 'style': 'height: 70px; font-size:28px; '}),
-      'doc_name': forms.Select(attrs={'class': 'form-control', 'style': 'height: 70px; font-size:28px; '}),
-      'p_email': forms.EmailInput(attrs={'class': 'form-control', 'style': 'height: 70px; font-size:28px; '}),
-      'booking_time' : TimeInput(attrs={'class':'form-control','style':'height:70px; font-size:28px; '}),
+      'booking_date' : DateInput(attrs={'min': datetime.date.today() ,}),
+      'p_name': forms.TextInput(attrs={'class': 'form-control',}),
+      'p_phone': forms.TextInput(attrs={'class': 'form-control',}),
+      'doc_name': forms.Select(attrs={'class': 'form-control',}),
+      'p_email': forms.EmailInput(attrs={'class': 'form-control',}),
+      'booking_time' : TimeInput(attrs={'class':'form-control',}),
       
     }
     

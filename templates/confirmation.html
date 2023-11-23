@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>confirmation</title>
 
   <link rel="stylesheet" href="{% static '/css/base.css' %}">
@@ -55,7 +59,7 @@
     <div class="bg-info ">
 
       <span class="my-auto d-flex align-content-center navbar-toggler-icon ">    <a class="p-6 ml-6 mt-3  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-        <i class="fa-sharp fa-solid fa-bars"></i>
+        <i class="ml-2 p-2 fa-sharp fa-solid fa-bars"></i>
       </a>
       </span>
 
@@ -63,39 +67,43 @@
       </h1>
     </div>
 
-    <div class="offcanvas w-75 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas w-75 w-lg-50 w-md-50 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class=" offcanvas-header ">
         <img src="{% static '/img/MAL.png' %}" class="w-25  float-center">
-        <h1 class="offcanvas-title p-4 text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h1>
-        <button type="button" class="btn-close mr-3 btn-outline-danger fs-1   " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <h4 class="offcanvas-title text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h4>
+        <button type="button" class="btn-close mr-3 btn-outline-danger  ml-1 p-2 " data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
       </div>
       <div class="bg-info p-2 ">
-
-        <h3 class="p-1  text-white navu listcontact ml-4 fst-italic ">Hello {{ request.user }}</h3>
+        <h3 class="p-1  text-white text-center listcontact ml-4 fst-italic ">Hello {{request.user}}</h3>
       </div>
       <div class="offcanvas-body">
         <div>
           <ul class="list-unstyled  ">
-            <li class="p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'home' %}">Home</a></li>
+            <li class="mt-2 text-center my-auto "><a class="  fw-bold navl text-decoration-none"href="{% url 'home' %}">Home</a></li>
 
-            <li class=" p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'about' %}">About</a></li>
+            <li class="mt-2 text-center my-auto "><a class="  fw-bold navl text-decoration-none"href="{% url 'about' %}">About</a></li>
 
-            <li class="  p-5 text-center my-auto "><a class="navl   fw-bold text-info text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
-            <li class=" p-5 text-center my-auto "><a class="navl  fw-bold text-info text-decoration-none"href="{% url 'contact' %}">Contact</a></li>
-            <li class=" p-5 text-center my-auto "><a class="navl  fw-bold text-info text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
+            <li class="mt-2 text-center my-auto "><a class="navl   fw-bold text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
+
+            <li class=" mt-2 text-center my-auto "><a class="navl  fw-bold  text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
+
+            <li class="mt-2 text-center my-auto "><a class="navl  fw-bold  text-decoration-none"href="{% url 'contact' %}">Contact</a></li>
+
+
             {% if user.is_authenticated and user.is_superuser or user.is_staff  %}
-            <li class=" p-5 text-center my-auto">
-              <a class="navl fw-bold  text-info text-decoration-none" href="/admin/">Admin </a>
+            <li class="mt-2 text-center my-auto">
+              <a class="navl fw-bold text-decoration-none" href="/admin/">Admin </a>
             </li>
-            <li class=" p-5 text-center my-auto">
-              <a class="navl fw-bold  text-info text-decoration-none" href="{% url 'appointment' %}">Appointments</a>
+
+            <li class="mt-2 text-center my-auto">
+              <a class="navl fw-bold   text-decoration-none" href="{% url 'appointment' %}">All Appointments</a>
             </li>
             {% endif %}
-            <li class=" p-5 text-center my-auto "><a class="  fw-bold navl text-info text-decoration-none"href="{% url 'myappointment' %}">My Appointments</a></li>
+               <li class=" mt-2 text-center my-auto "><a class="  fw-bold navl  text-decoration-none"href="{% url 'myappointment' %}">My Appointments</a></li>
+               
 
-
-            <li class=" p-5 text-center my-auto "><a class="navl fw-bold  text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
+            <li class=" mt-2 text-center my-auto "><a class="navl fw-bold  text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
             </li>
           </ul>
 
@@ -116,7 +124,7 @@
 
         </div>
         <div class="d-flex justify-content-center form_container">
-          <div class="alert p-4 text-center fs-1 shadow-lg " role="alert ">
+          <div class="alert p-4 text-center shadow-lg " role="alert ">
             <p class="text-start">
               Thankyou {{ patient }} for booking your medical appointment on {{ booking_date }} at {{ booking_time }} with {{ doctor }}. Please arrive 15 minutes early and remember to bring any necessary documentation or insurance cards. If you need to reschedule or have any questions, please contact us at <a href="www.medicalAppointment.com"class="list list-unstyled text-primary">medicalAppointment.com. </a>We look forward to assisting you with your healthcare needs
             </p>
@@ -131,7 +139,7 @@
   <footer class="sticky-bottom ">
 
     <div class="mt-2 d-flex justify-content-center">
-      <p class="fs-1 text-primary fw-bold">
+      <p class=" text-primary fw-bold">
         EMERGENCY CONTACT : 7473392962
       </p>
     </div>
@@ -166,7 +174,7 @@
     </div>
 
     <div class="d-flex justify-content-center ">
-      <p class="fs-2 my-auto">
+      <p class="fs-6 my-auto">
         &copy; 2023 Medical Appointment
       </p>
     </div>
