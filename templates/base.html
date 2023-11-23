@@ -31,15 +31,15 @@
     <div class="bg-info ">
 
       <span class="my-auto d-flex align-content-center navbar-toggler-icon ">    <a class="p-6 ml-6 mt-3  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-        <i class="ml-2 p-3 mt-2 fa-sharp fa-solid fa-bars"></i>
+        <i class="text-white ml-2 p-3 mt-2 fa-sharp fa-solid fa-bars"></i>
       </a>
       </span>
 
-      <h1 class="text-white headertext  fw-bold text-center my-auto ">Medical Appointment
+      <h1 class="text-white headertext  fw-bold text-center my-auto  p-3">Medical Appointment
       </h1>
     </div>
 
-    <div class="offcanvas w-75 w-lg-50 w-md-50 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas w-25 w-lg-50 w-md-50 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class=" offcanvas-header ">
         <img src="{% static '/img/MAL.png' %}" class="w-25  float-center">
         <h4 class="offcanvas-title text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h4>
@@ -54,25 +54,25 @@
           <ul class="list-unstyled  ">
             <li class="mt-2 text-center my-auto "><a class="  fw-bold  text-decoration-none"href="{% url 'home' %}">Home</a></li>
 
-            <li class="mt-2 text-center my-auto "><a class="  fw-bold navl text-decoration-none"href="{% url 'about' %}">About</a></li>
+            <li class="mt-2 text-center my-auto "><a class="  fw-bold  text-decoration-none"href="{% url 'about' %}">About</a></li>
 
-            <li class="mt-2 text-center my-auto "><a class="navl   fw-bold text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
+            <li class="mt-2 text-center my-auto "><a class="   fw-bold text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
 
-            <li class=" mt-2 text-center my-auto "><a class="navl  fw-bold  text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
+            <li class=" mt-2 text-center my-auto "><a class="  fw-bold  text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
 
-            <li class="mt-2 text-center my-auto "><a class="navl  fw-bold  text-decoration-none"href="{% url 'contact' %}">Contact</a></li>
+            <li class="mt-2 text-center my-auto "><a class="  fw-bold  text-decoration-none"href="{% url 'contact' %}">Contact</a></li>
 
 
             {% if user.is_authenticated and user.is_superuser or user.is_staff  %}
             <li class="mt-2 text-center my-auto">
-              <a class="navl fw-bold text-decoration-none" href="/admin/">Admin </a>
+              <a class=" fw-bold text-decoration-none" href="/admin/">Admin </a>
             </li>
 
             <li class="mt-2 text-center my-auto">
-              <a class="navl fw-bold   text-decoration-none" href="{% url 'appointment' %}">All Appointments</a>
+              <a class=" fw-bold   text-decoration-none" href="{% url 'appointment' %}">All Appointments</a>
             </li>
             {% endif %}
-               <li class=" mt-2 text-center my-auto "><a class="  fw-bold navl  text-decoration-none"href="{% url 'myappointment' %}">My Appointments</a></li>
+               <li class=" mt-2 text-center my-auto "><a class="  fw-bold   text-decoration-none"href="{% url 'myappointment' %}">My Appointments</a></li>
                
 
             <li class=" mt-2 text-center my-auto "><a class="navl fw-bold  text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
