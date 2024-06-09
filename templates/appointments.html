@@ -4,63 +4,59 @@ doctors
 {% endblock %}
 
 {% block content %}
-   
 <div class="container-fluid">
-     
-<h4 class=" p-2 mt-5 fw-bold text-primary text-center">All Appointments Appere Here </h4>
-
-  <table class="mt-2 container-fluid table border border-primary fs-6  ">
-  <thead>
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Doctor</th>
-      <th scope="col">Booked On</th>
-      <th scope="col">Booking Date</th>
-      <th scope="col">Booking Time</th>
-      {% if user.is_authenticated and user.is_superuser %}
-      <th scope="col">Close</th>
-      {% endif %}
-    </tr>
-  </thead>
-  <tbody>
-          {% for d in booking %}
-    <tr>
-    
-      <td>{{ d.id }}</td>
-      <td>{{ d.p_name }}</td>
-      <td>{{ d.p_phone }}</td>
-      <td>{{ d.doc_name }}</td>
-      <td>{{ d.booked_on }}</td>
-      <td>{{ d.booking_date }}</td>
-      <td>{{ d.booking_time }}</td>
-                  {% if user.is_authenticated and user.is_superuser %}
-                  <td>
-                  <form method="post" action="{% url 'delete' d.id %}">
-    {% csrf_token %}
-    <button type="submit" class="delete-button bg-danger text-white p-1 rounded">Close</button>
-</form></td>
-           
-      {% endif %}
-
-    </tr>
-       {% endfor %}
-  </tbody>
-</table>
-
+  <h4 class="p-2 mt-3 fw-bold text-primary text-center">All Appointments Appear Here</h4>
+  <div class="table-responsive">
+    <table class="mt-2 table border border-primary fs-6">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Doctor</th>
+          <th scope="col">Booked On</th>
+          <th scope="col">Booking Date</th>
+          <th scope="col">Booking Time</th>
+          {% if user.is_authenticated and user.is_superuser %}
+          <th scope="col">Close</th>
+          {% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in booking %}
+        <tr>
+          <td>{{ d.id }}</td>
+          <td>{{ d.p_name }}</td>
+          <td>{{ d.p_phone }}</td>
+          <td>{{ d.doc_name }}</td>
+          <td>{{ d.booked_on }}</td>
+          <td>{{ d.booking_date }}</td>
+          <td>{{ d.booking_time }}</td>
+          {% if user.is_authenticated and user.is_superuser %}
+          <td>
+            <form method="post" action="{% url 'delete' d.id %}">
+              {% csrf_token %}
+              <button type="submit" class="delete-button bg-danger text-white p-1 rounded">Close</button>
+            </form>
+          </td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script>
-    document.querySelectorAll('.delete-button').forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            event.preventDefault();
-            if (window.confirm('Are you sure you want to delete this item?')) {
-                // If the user confirms, submit the form
-                event.target.parentElement.submit();
-            }
-        });
+  document.querySelectorAll('.delete-button').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      if (window.confirm('Are you sure you want to delete this item?')) {
+        // If the user confirms, submit the form
+        event.target.parentElement.submit();
+      }
     });
+  });
 </script>
 
 {% endblock %}

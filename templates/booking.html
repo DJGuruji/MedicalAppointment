@@ -1,14 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{% endblock %}</title>
-
   <link rel="stylesheet" href="{% static '/css/base.css' %}">
-
+  <link rel="icon" href="{% static '/img/MAL.png' %}" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Metrophobic&display=swap" rel="stylesheet">
@@ -20,201 +18,215 @@
     body {
       font-family: 'Metrophobic', sans-serif;
     }
+    footer {
+      background: #f0fcfe;
+    }
+    .offli:hover{
+      color : blue !important;
+    }
+    .bg-opacity {
+      background-color: rgba(0, 102, 204, 0.5);
+    }
+    .listcontact {
+      font-size: calc(1rem + 0.5vw);
+    }
+    .fs-1, .fs-3, .fs-4, .fs-5, .fs-6 {
+      font-size: inherit;
+    }
+    @media (max-width: 768px) {
+      .headertext {
+        font-size: 1.5rem;
+      }
+      .listcontact {
+        font-size: 1rem;
+      }
+      .offcanvas-mobile {
+        width: 75% !important;
+      }
+      .logo{
+        width: 25% !important;
+      }
+    }
+    @media (min-width: 769px) {
+      .headertext {
+        font-size: 2rem;
+      }
+      .listcontact {
+        font-size: 1.25rem;
+      }
+      .offcanvas-laptop {
+        width: 25% !important;
+      }
+      form{
+        width: 50% !important;
+      }
+      .logo{
+        width: 15% !important;
+      }
+      
+    }
   </style>
 </head>
-
-
-
-
 <body>
-
-
-  <nav class="p-6 sticky-top">
-    <div class="bg-info ">
-
-      <span class="my-auto d-flex align-content-center navbar-toggler-icon ">    <a class="p-6 ml-6 mt-3  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-        <i class="text-white ml-2 p-2 fa-sharp fa-solid fa-bars"></i>
-      </a>
+  <nav class="p-1 pb-2 sticky-top w-100">
+    <div class="bg-opacity">
+      <span class="navbar-toggler-icon my-auto d-flex align-content-center">
+        <a class="p-6 ml-6  listcontact" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+         <i class="text-white ml-2 fs-3 fa-sharp fa-solid fa-bars"></i> 
+         
+        </a>
       </span>
-
-      <h1 class="text-white headertext  fw-bold text-center my-auto p-3">Medical Appointment
-      </h1>
+      <h1 class="text-white fw-bold text-center my-auto fs-2">MedPal</h1>
     </div>
-
-    <div class="offcanvas w-25 w-lg-50 w-md-50 offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-      <div class=" offcanvas-header ">
-        <img src="{% static '/img/MAL.png' %}" class="w-25  float-center">
-        <h4 class="offcanvas-title text-primary text-center fw-bold" id="offcanvasExampleLabel ">MEDICAL APPOINTMENT</h4>
-        <button type="button" class="btn-close mr-3 btn-outline-danger  ml-1 p-2 " data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
+    <div class="offcanvas offcanvas-start offcanvas-mobile offcanvas-laptop" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <img src="{% static '/img/MAL.png' %}" class="w-25 float-center">
+        <h4 class="offcanvas-title text-primary text-center fw-bold" id="offcanvasExampleLabel">MEDPAL</h4>
+        <button type="button" class="btn-close btn-outline-danger ml-1 p-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="bg-info p-2 ">
-        <h3 class="p-1  text-white text-center listcontact ml-4 fst-italic ">Hello {{request.user}}</h3>
+      <div class="bg-opacity">
+        <h3 class=" text-white text-center listcontact ml-4 fst-italic fs-3 ">Hello {{request.user}}</h3>
       </div>
       <div class="offcanvas-body">
         <div>
-          <ul class="list-unstyled  ">
-            <li class="mt-2 text-center my-auto "><a class="  fw-bold text-decoration-none"href="{% url 'home' %}">Home</a></li>
-
-            <li class="mt-2 text-center my-auto "><a class="  fw-bold  text-decoration-none"href="{% url 'about' %}">About</a></li>
-
-            <li class="mt-2 text-center my-auto "><a class="   fw-bold text-decoration-none"href="{% url 'booking' %}">Booking</a></li>
-
-            <li class=" mt-2 text-center my-auto "><a class="  fw-bold  text-decoration-none"href="{% url 'doctors' %}">Doctors</a></li>
-
-            <li class="mt-2 text-center my-auto "><a class="  fw-bold  text-decoration-none"href="{% url 'contact' %}">Contact</a></li>
-
-
-            {% if user.is_authenticated and user.is_superuser or user.is_staff  %}
-            <li class="mt-2 text-center my-auto">
-              <a class=" fw-bold text-decoration-none" href="/admin/">Admin </a>
-            </li>
-
-            <li class="mt-2 text-center my-auto">
-              <a class=" fw-bold   text-decoration-none" href="{% url 'appointment' %}">All Appointments</a>
-            </li>
+          <ul class="list-unstyled">
+            <li class="mt-2 text-center my-auto"><a class="fw-bold text-decoration-none fs-5 text-black offli" href="{% url 'home' %}">Home</a></li>
+            <li class="mt-2 text-center my-auto"><a class="fw-bold text-decoration-none fs-5 text-black offli" href="{% url 'about' %}">About</a></li>
+            <li class="mt-2 text-center my-auto"><a class="fw-bold text-decoration-none fs-5 text-black offli" href="{% url 'booking' %}">Booking</a></li>
+            <li class="mt-2 text-center my-auto"><a class="fw-bold text-decoration-none fs-5 text-black offli" href="{% url 'doctors' %}">Doctors</a></li>
+            <li class="mt-2 text-center my-auto"><a class="fw-bold text-decoration-none fs-5 text-black offli" href="{% url 'contact' %}">Contact</a></li>
+            {% if user.is_authenticated and user.is_superuser or user.is_staff %}
+            <li class="mt-2 text-center my-auto"><a class="fw-bold text-decoration-none fs-5 text-black offli" href="/admin/">Admin</a></li>
+            <li class="mt-2 text-center my-auto"><a class="fw-bold text-decoration-none fs-5 text-black offli" href="{% url 'appointment' %}">All Appointments</a></li>
             {% endif %}
-               <li class=" mt-2 text-center my-auto "><a class="  fw-bold   text-decoration-none"href="{% url 'myappointment' %}">My Appointments</a></li>
-               
-
-            <li class=" mt-2 text-center my-auto "><a class=" fw-bold  text-danger  text-decoration-none"href="{% url 'logout' %}">Logout</a>
-            </li>
+            <li class="mt-2 text-center my-auto"><a class="fw-bold text-decoration-none fs-5 text-black offli" href="{% url 'myappointment' %}">My Appointments</a></li>
+            <li class="mt-2 text-center my-auto"><a class="fw-bold text-danger text-decoration-none fs-4" href="{% url 'logout' %}">Logout</a></li>
           </ul>
-
-
         </div>
-
       </div>
     </div>
   </nav>
+
   <div class="h-100 pb-3 ">
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="user_card h-100 w-75 ">
       <div class="d-flex justify-content-center">
-          <img src="{% static '/img/MAL.png' %}" class="w-25">
+          <img src="{% static '/img/MAL.png' %}" class="logo">
         </div>
-        <div class="d-flex justify-content-center align-items-center">
+     
+        <div class="d-flex justify-content-center align-items-center ">
+          
 
-          <h5 id="form-title"class="   ">Book An Appointment</h5>
+          <form method="POST" action="" class="text-center form-control form-control-lg shadow-lg pb-2">
+            <div class="d-flex justify-content-center align-items-center">
 
+              <h5 id="form-title "class="py-4 fs-4 text-primary fw-bolder">Book An Appointment</h5>
+    
+            </div>
+            {% csrf_token %}
+  
+            <div class=" input-group text-center">
+              {{ form.p_name.label}} :
+            </div>
+            <div class=" mb-2 input-group-append ">
+              {{ form.p_name}}
+  
+            </div>
+            <div class="input-group ">
+              {{ form.p_phone.label}} :
+  
+            </div>
+            <div class=" input-group-append mb-2">
+              {{ form.p_phone }}
+            </div>
+            <div class="input-group ">
+              {{ form.p_email.label}} :
+  
+            </div>
+            <div class=" input-group-append mb-2">
+              {{ form.p_email }}
+  
+            </div>
+            <div class=" input-group ">
+              {{ form.doc_name.label}} :
+  
+            </div>
+            <div class="p-2 input-group-append mb-2">
+              {{ form.doc_name}}
+            </div>
+            <div class=" input-group  ">
+              {{ form.booking_date.label }} :
+            </div>
+            <div class="  input-group-append ">
+              {{ form.booking_date }}
+            </div>
+  
+            <div class="  input-group  ">
+              {{ form.booking_time.label }} :
+            </div>
+            <div class=" input-group-append ">
+              {{ form.booking_time }}
+            </div>
+  
+            <div class="d-flex justify-content-center my-4 login_container">
+              <input class="btn login_btn btn-danger p-1  rounded " type="submit" value="Submit">
+            </div>
+          </div>
+          {{ form.errors }}
+        </div>
+      </form>
         </div>
 
-
-        <form method="POST" action="" class="text-center form-control form-control-lg ">
-          {% csrf_token %}
-
-          <div class=" input-group text-center">
-            {{ form.p_name.label}} :
-          </div>
-          <div class=" mb-2 input-group-append ">
-            {{ form.p_name}}
-
-          </div>
-          <div class="input-group ">
-            {{ form.p_phone.label}} :
-
-          </div>
-          <div class=" input-group-append mb-2">
-            {{ form.p_phone }}
-          </div>
-          <div class="input-group ">
-            {{ form.p_email.label}} :
-
-          </div>
-          <div class=" input-group-append mb-2">
-            {{ form.p_email }}
-
-          </div>
-          <div class=" input-group ">
-            {{ form.doc_name.label}} :
-
-          </div>
-          <div class="p-2 input-group-append mb-2">
-            {{ form.doc_name}}
-          </div>
-          <div class=" input-group  ">
-            {{ form.booking_date.label }} :
-          </div>
-          <div class="  input-group-append ">
-            {{ form.booking_date }}
-          </div>
-
-          <div class="  input-group  ">
-            {{ form.booking_time.label }} :
-          </div>
-          <div class=" input-group-append ">
-            {{ form.booking_time }}
-          </div>
-
-          <div class="d-flex justify-content-center mt-5 login_container">
-            <input class="btn login_btn btn-danger p-1  rounded " type="submit" value="Submit">
-          </div>
-        </div>
-        {{ form.errors }}
-      </div>
-    </form>
+        
 
   </div>
 </div>
 </div>
+  <footer class="mt-2">
+    <div class="d-flex justify-content-center">
+      <p class=" text-primary fw-bold">EMERGENCY CONTACT: 7473392962</p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <ul class="d-flex list-unstyled">
+        <li class=" fs-3 mx-3">
+          <a href="https://github.com/DJGuruji/MedicalAppointment">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </li>
+        <li class="fs-3 mx-3">
+          <a href="https://instagram.com/__krishnanath?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">
+            <i class="fa-brands fa-square-instagram"></i>
+          </a>
+        </li>
+        <li class="fs-3 mx-3">
+          <a href="https://www.linkedin.com/in/krishnanath-s-24055a227">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="d-flex justify-content-center">
+      <p class=" my-auto">&copy; 2023 DJGURUJI</p>
+    </div>
+  </footer>
 
-
-<footer class="sticky-bottom mt-3 ">
-
-<div class="d-flex justify-content-center">
-<p class="text-primary fw-bold">
-EMERGENCY CONTACT : 7473392962
-</p>
-</div>
-<div class=" ">
-<ul class="d-flex justify-content-center list-unstyled listcontact">
-
-<li class="me-4 ">
-<a class="" href="https://github.com/DJGuruji/MedicalAppointment">
-<i class="fa-brands fa-github "></i>
-
-</a>
-</li>
-<li class="me-4 ">
-
-<a class=" "href="https://instagram.com/__krishnanath?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">
-<span class="w-25">
-<i class=" fa-brands fa-square-instagram "></i>
-</span>
-</a>
-</li>
-<li class=" me-4">
-
-<a class=""href="https://www.linkedin.com/in/krishnanath-s-24055a227">
-
-<i class="fa-brands fa-linkedin "></i>
-
-</a>
-</li>
-</ul>
-
-
-</div>
-<div class="d-flex justify-content-center">
-<p class="fs-6 ">
-&copy; 2023 Medical Appointment
-</p>
-</div>
-
-
-</footer>
-
-
-<script>
-var form_fields = document.getElementsByTagName('input')
-form_fields[1].placeholder = 'Name..';
-form_fields[2].placeholder = 'Phone..';
-form_fields[3].placeholder = 'Email...';
-
-
-for (var field in form_fields) {
-form_fields[field].className += ' form-control'
-}
-</script>
+  <script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Name..';
+    form_fields[2].placeholder = 'Phone..';
+    form_fields[3].placeholder = 'Email...';
+    
+    
+    for (var field in form_fields) {
+    form_fields[field].className += ' form-control'
+    }
+    </script>
 </body>
 </html>
+
+
+
+{% comment %} 
+
+</body>
+</html> {% endcomment %}

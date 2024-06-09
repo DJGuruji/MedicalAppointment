@@ -3,27 +3,18 @@
 doctors
 {% endblock %}
 {% block content %}
-
-
 <h4 class="text-center fw-bold mt-1 p-1 text-success ">Our Medical Team</h4>
 {% for d in dept %}
-<div class="card w-100 p-2  ">
+<div class="card w-100 p-2">
   <div class="card-body shadow-lg py-4">
-    <img class="card-img-top" src="{{ d.doc_image.url }}" class="imgheight"alt="Card image cap">
-    <h4 class="card-title  text-center fw-bolder ">Dr.{{d.doc_name}} </h4>
-    <h5 class="card-subtitle  mb-1 text-body-secondary text-center">Specialized in :{{d.doc_spec}}</h5>
-    <p class="card-text  text-center">Department:
-      {{ d.dep_name }}
-    </p>
-     {% if user.is_authenticated and user.is_superuser or user.is_staff  %}
-           
-       <p class="card-text text-center">Phone:
-      {{ d.doc_phone }}
-    </p>
-       <p class="card-text text-center">Email:
-      {{ d.doc_email }}
-    </p>
-  {% endif %}
+    <div class="d-flex justify-content-center"><img class="card-img-top img-fluid" src="{{ d.doc_image.url }}" alt="Doctor's Image" style=""></div>
+    <h4 class="card-title text-center fw-bolder">Dr. {{d.doc_name}}</h4>
+    <h5 class="card-subtitle mb-1 text-body-secondary text-center">Specialized in: {{d.doc_spec}}</h5>
+    <p class="card-text text-center">Department: {{ d.dep_name }}</p>
+    {% if user.is_authenticated and user.is_superuser or user.is_staff %}
+    <p class="card-text text-center">Phone: {{ d.doc_phone }}</p>
+    <p class="card-text text-center">Email: {{ d.doc_email }}</p>
+    {% endif %}
   </div>
 </div>
 {% endfor %}
