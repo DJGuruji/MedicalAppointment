@@ -4,11 +4,22 @@ from django.contrib.auth.models import User
 from django import forms
 from .models import Booking
 import datetime
+
+
+
 class CreateUserForm(UserCreationForm):
+  email = forms.EmailField(required=True)
+
   class Meta:
     model = User
     fields = ['username', 'email', 'password1', 'password2']
     widget=forms.PasswordInput(attrs={'id': 'id_password'})
+
+  def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("This email address is already in use.")
+        return email 
     
   
 

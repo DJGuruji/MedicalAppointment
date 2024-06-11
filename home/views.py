@@ -21,39 +21,38 @@ from django.core.mail import EmailMessage,EmailMultiAlternatives
 
 from django.views.decorators.cache import never_cache
 
-  
+ 
 def register(request):
-  if request.user.is_authenticated:
-    return redirect('home')
-  else:
-    form = CreateUserForm()
-    if request.method == 'POST':
-      form = CreateUserForm(request.POST)
-      if form.is_valid():
-        form.save()
-        user = form.cleaned_data.get('username')
-        
-        subject = f'MEDICAL APPOINTMENT ACCOUNT REGISTRATION'
-        message = 'Account Register Confirmation '
-        recepiant = form.cleaned_data.get('email')
-        user = form.cleaned_data.get  ('username')
-        context ={
-          'user' : user
-        }
-        card_html = render_to_string('registeremail.html', context)
-        
-        email = EmailMultiAlternatives(subject, message,settings.EMAIL_HOST_USER, [recepiant])
-     
-        email.attach_alternative(card_html, 'text/html')
-        email.send(fail_silently=False)
-        
-        messages.success(request,'success')
-      
-        messages.success(request,'Account created for '+ user)
-        return redirect('login')
-  
-  context ={ 'form' :form}
-  return render(request,'register.html', context)
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                
+                subject = 'MEDICAL APPOINTMENT ACCOUNT REGISTRATION'
+                message = 'Account Register Confirmation'
+                recipient = form.cleaned_data.get('email')
+                context = {
+                    'user': user
+                }
+                card_html = render_to_string('registeremail.html', context)
+                
+                email = EmailMultiAlternatives(subject, message, settings.EMAIL_HOST_USER, [recipient])
+                email.attach_alternative(card_html, 'text/html')
+                email.send(fail_silently=False)
+                
+                messages.success(request, 'Account created for ' + user)
+                return redirect('login')
+            else:
+                for error in form.errors.values():
+                    messages.error(request, error)
+
+        context = {'form': form}
+        return render(request, 'register.html', context)
 
 
  
