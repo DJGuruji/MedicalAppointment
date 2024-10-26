@@ -3,7 +3,7 @@
 
 
 
-<img src="https://github.com/DJGuruji/MedicalAppointment/blob/main/assets/img1.jpeg?raw=true" alt="FMC" width="800" height="500">
+<img src="https://github.com/DJGuruji/MedicalAppointment/blob/main/assets/img1.jpeg?raw=true" alt="FMC" width="500" height="500">
 <img src="https://github.com/DJGuruji/MedicalAppointment/blob/main/assets/img2.jpeg?raw=true" alt="FMC" width="800" height="500">
 <img src="https://github.com/DJGuruji/MedicalAppointment/blob/main/assets/img3.jpeg?raw=true" alt="FMC" width="800" height="500">
 <img src="https://github.com/DJGuruji/MedicalAppointment/blob/main/assets/img4.jpeg?raw=true" alt="FMC" width="800" height="500">
